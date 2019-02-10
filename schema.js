@@ -1,6 +1,15 @@
 const axios = require('axios');
 const { GraphQLObjectType, GraphQLInt, GraphQLString ,GraphQLSchema } = require('graphql');
 
+const SpritesType = new GraphQLObjectType({
+    name: 'Sprites',
+    fields: () => ({
+        front_default: {
+            type: GraphQLString
+        }
+    })
+});
+
 const PokemonType = new GraphQLObjectType({
     name: 'Pokemon',
     fields: () => ({
@@ -9,6 +18,9 @@ const PokemonType = new GraphQLObjectType({
         },
         name: {
             type: GraphQLString
+        },
+        sprites: {
+            type: SpritesType
         }
     })
 });
