@@ -3,10 +3,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema');
+const cors = require('cors');
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(cors());
 
 // GraphQL
 app.use('/graphql', graphqlHTTP({
